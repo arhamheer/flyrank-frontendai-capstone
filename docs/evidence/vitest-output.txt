@@ -5,9 +5,9 @@
 Not implemented: navigation to another Document
 
  Test Files  10 passed (10)
-      Tests  64 passed (64)
-   Start at  21:03:28
-   Duration  8.40s (transform 1.15s, setup 20.97s, import 3.97s, tests 3.30s, environment 37.45s)
+      Tests  66 passed (66)
+   Start at  22:02:50
+   Duration  7.84s (transform 1.13s, setup 19.68s, import 4.04s, tests 3.30s, environment 34.86s)
 
  % Coverage report from v8
 -------------------|---------|----------|---------|---------|-------------------
@@ -23,7 +23,7 @@ All files          |   93.16 |    82.41 |   92.72 |   94.06 |
   HistoryPanel.tsx |     100 |       90 |     100 |     100 | 55                
   LoadingState.tsx |       0 |      100 |       0 |       0 | 2                 
  lib               |   94.44 |       78 |     100 |   96.15 |                   
-  groq.ts          |   91.42 |    81.25 |     100 |   91.17 | 47,101,105        
+  groq.ts          |   91.42 |    81.25 |     100 |   91.17 | 51,105,109        
   history.ts       |    87.5 |    66.66 |     100 |     100 | 11,16-37          
   markdown.ts      |     100 |    66.66 |     100 |     100 | 11,66             
   prompt.ts        |   81.81 |    71.42 |     100 |   81.81 | 15,19             

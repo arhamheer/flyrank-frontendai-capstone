@@ -5,7 +5,11 @@ import { buildFallbackBrief } from "./fallbackBrief";
 import { buildUserPrompt, SYSTEM_PROMPT } from "./prompt";
 import { BriefResponseSchema, type BriefRequest, type GeneratedBrief } from "./types";
 
-const DEFAULT_MODEL = "llama-3.3-70b-versatile";
+// Groq's response_format: json_schema (strict mode) is currently only
+// supported by the openai/gpt-oss family — see
+// https://console.groq.com/docs/structured-outputs. Other Groq models
+// (e.g. llama-3.3-70b-versatile) reject the request with a 400.
+const DEFAULT_MODEL = "openai/gpt-oss-120b";
 
 function getClient(): Groq | null {
   const apiKey = process.env.GROQ_API_KEY;

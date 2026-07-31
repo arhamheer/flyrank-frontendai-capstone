@@ -131,4 +131,36 @@ describe("generateBrief", () => {
     expect(result.source).toBe("fallback");
     expect(createMock).not.toHaveBeenCalled();
   });
+
+  // Regression test for a real bug found during manual smoke-testing against
+  // the live Groq API: llama-3.3-70b-versatile returns a 400 for
+  // response_format: json_schema ("This model does not support response
+  // format `json_schema`"). Only the openai/gpt-oss family currently
+  // supports strict structured outputs on Groq — see
+  // https://console.groq.com/docs/structured-outputs#supported-models.
+  // Mocks can't catch "the real API rejects this model" on their own, so
+  // this pins the default to the known-good family as a tripwire against
+  // silently reverting to an unsupported model.
+  it("defaults to a model in the openai/gpt-oss family (the only Groq models confirmed to support strict json_schema mode)", async () => {
+    delete process.env.GROQ_MODEL;
+    createMock.mockResolvedValueOnce(mockCompletion(validBriefJson));
+
+    const { generateBrief } = await import("@/lib/groq");
+    await generateBrief(request);
+
+    expect(createMock).toHaveBeenCalledTimes(1);
+    const requestedModel = createMock.mock.calls[0][0].model as string;
+    expect(requestedModel.startsWith("openai/gpt-oss")).toBe(true);
+  });
+
+  it("respects a GROQ_MODEL override", async () => {
+    process.env.GROQ_MODEL = "openai/gpt-oss-20b";
+    createMock.mockResolvedValueOnce(mockCompletion(validBriefJson));
+
+    const { generateBrief } = await import("@/lib/groq");
+    await generateBrief(request);
+
+    expect(createMock.mock.calls[0][0].model).toBe("openai/gpt-oss-20b");
+    delete process.env.GROQ_MODEL;
+  });
 });

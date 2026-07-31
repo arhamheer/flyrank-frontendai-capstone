@@ -158,9 +158,13 @@ Two-part prompt in `src/lib/prompt.ts`:
 
 ### Model
 
-Defaults to `llama-3.3-70b-versatile` (fast, free-tier, supports strict JSON-schema
-mode). Override via `GROQ_MODEL` in `.env.local` — any Groq model that supports
-`response_format: json_schema` works as a drop-in swap, no code changes.
+Defaults to `openai/gpt-oss-120b` — as of this writing, Groq's strict
+`response_format: json_schema` mode is only supported by the `openai/gpt-oss` family
+(`gpt-oss-120b`, `gpt-oss-20b`); other Groq-hosted models reject the request with a 400
+(confirmed against the live API while building this, not assumed from docs). Override
+via `GROQ_MODEL` in `.env.local` — swap to `openai/gpt-oss-20b` for a faster/cheaper
+option, or any future Groq model that adds `json_schema` support, no code changes
+needed either way.
 
 ### Resilience summary
 
