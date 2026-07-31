@@ -1,0 +1,37 @@
+
+ RUN  v4.1.10 /media/arham/90E2383BE238283C/Data/Media/poop/flyrank/flyrank-frontendAI-capstone
+      Coverage enabled with v8
+
+Not implemented: navigation to another Document
+
+ Test Files  10 passed (10)
+      Tests  64 passed (64)
+   Start at  21:03:28
+   Duration  8.40s (transform 1.15s, setup 20.97s, import 3.97s, tests 3.30s, environment 37.45s)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   93.16 |    82.41 |   92.72 |   94.06 |                   
+ app               |       0 |      100 |       0 |       0 |                   
+  error.tsx        |       0 |      100 |       0 |       0 | 1-16              
+ app/api/brief     |   91.66 |       70 |     100 |    91.3 |                   
+  route.ts         |   91.66 |       70 |     100 |    91.3 | 67-68             
+ components        |   96.77 |    93.54 |      92 |   96.77 |                   
+  BriefForm.tsx    |   96.77 |    93.33 |   88.88 |   96.77 | 152               
+  HistoryPanel.tsx |     100 |       90 |     100 |     100 | 55                
+  LoadingState.tsx |       0 |      100 |       0 |       0 | 2                 
+ lib               |   94.44 |       78 |     100 |   96.15 |                   
+  groq.ts          |   91.42 |    81.25 |     100 |   91.17 | 47,101,105        
+  history.ts       |    87.5 |    66.66 |     100 |     100 | 11,16-37          
+  markdown.ts      |     100 |    66.66 |     100 |     100 | 11,66             
+  prompt.ts        |   81.81 |    71.42 |     100 |   81.81 | 15,19             
+-------------------|---------|----------|---------|---------|-------------------
+
+=============================== Coverage summary ===============================
+Statements   : 93.16% ( 218/234 )
+Branches     : 82.41% ( 75/91 )
+Functions    : 92.72% ( 51/55 )
+Lines        : 94.06% ( 206/219 )
+================================================================================
