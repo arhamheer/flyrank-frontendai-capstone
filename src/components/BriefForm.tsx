@@ -110,10 +110,14 @@ export default function BriefForm({ onSubmit, disabled, fieldErrors = {} }: Brie
             name="contentType"
             value={contentType}
             onChange={(e) => setContentType(e.target.value as (typeof CONTENT_TYPES)[number])}
-            className="w-full rounded-md border border-black/20 dark:border-white/25 bg-transparent px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+            className="w-full rounded-md border border-black/20 dark:border-white/25 bg-white dark:bg-neutral-900 text-black dark:text-white px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
           >
             {CONTENT_TYPES.map((type) => (
-              <option key={type} value={type}>
+              <option
+                key={type}
+                value={type}
+                className="bg-white text-black dark:bg-neutral-900 dark:text-white"
+              >
                 {CONTENT_TYPE_LABELS[type]}
               </option>
             ))}
@@ -129,10 +133,10 @@ export default function BriefForm({ onSubmit, disabled, fieldErrors = {} }: Brie
             name="tone"
             value={tone}
             onChange={(e) => setTone(e.target.value as (typeof TONES)[number])}
-            className="w-full rounded-md border border-black/20 dark:border-white/25 bg-transparent px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+            className="w-full rounded-md border border-black/20 dark:border-white/25 bg-white dark:bg-neutral-900 text-black dark:text-white px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
           >
             {TONES.map((t) => (
-              <option key={t} value={t}>
+              <option key={t} value={t} className="bg-white text-black dark:bg-neutral-900 dark:text-white">
                 {TONE_LABELS[t]}
               </option>
             ))}
